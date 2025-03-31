@@ -11,7 +11,8 @@ from typing import Optional, Dict, Any, List
 from dotenv import load_dotenv
 from app.utils.functions import *
 
-load_dotenv()
+if os.getenv("VERCEL_ENV") is None:  # Vercel sets this variable in production
+    load_dotenv()
 
 AIPROXY_TOKEN = os.getenv("AIPROXY_TOKEN")
 AIPROXY_BASE_URL = "https://aiproxy.sanand.workers.dev/openai/v1"
