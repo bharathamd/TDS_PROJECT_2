@@ -1,11 +1,18 @@
 {
     "$schema": "https://openapi.vercel.sh/vercel.json",
     "version": 2,
+    "functions": {
+        "app/main.py": {
+            "runtime": "[email protected]"
+        }
+    },
     "routes": [
         {
             "src": "/(.*)",
             "dest": "app/main.py"
         }
     ],
-    "devCommand": "uvicorn app.main:app --host 0.0.0.0 --port 3000"
+    "env": {
+        "APP_MODULE": "app.main:app"
+    }
 }
