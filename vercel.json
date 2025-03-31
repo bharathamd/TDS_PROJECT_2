@@ -1,0 +1,25 @@
+{
+    "$schema": "https://openapi.vercel.sh/vercel.json",
+    "version": 2,
+    "builds": [
+        {
+            "src": "app/main.py",
+            "use": "@vercel/python"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "app/main.py"
+        }
+    ],
+    "env": {
+        "AIPROXY_TOKEN": "@aiproxy_token"
+    },
+    "functions": {
+        "app/main.py": {
+            "runtime": "[email protected]"
+        }
+    },
+    "devCommand": "uvicorn app.main:app --host 0.0.0.0 --port 3000"
+}
