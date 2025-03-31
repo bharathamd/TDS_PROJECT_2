@@ -3,7 +3,7 @@
     "version": 2,
     "functions": {
         "app/main.py": {
-            "runtime": "[email protected]"
+            "runtime": "vercel-python@3.12"
         }
     },
     "routes": [
